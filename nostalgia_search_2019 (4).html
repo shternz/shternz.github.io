@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Интернет до 2019 — Поиск</title>
+  <style>
+    body {
+      background: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    .note {
+      margin-top: 20px;
+      color: #666;
+    }
+    .gcse-search {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+  <script async src="https://cse.google.com/cse.js?cx=517d928c6380c41c9"></script>
+  <script>
+    window.__gcse = {
+      callback: function () {
+        const searchBox = document.querySelector('input.gsc-input');
+        if (searchBox) {
+          searchBox.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+              e.stopPropagation();
+              const q = searchBox.value;
+              if (!q.includes('before:2019-03-01')) {
+                searchBox.value = q + ' before:2019-03-01';
+              }
+            }
+          });
+        }
+      }
+    };
+  </script>
+</head>
+<body>
+  <h1>🌐 Интернет до марта 2019</h1>
+
+  <div class="note">Поиск только по материалам до 1 марта 2019 года (через фильтр запроса)</div>
+
+  <div class="gcse-search"></div>
+</body>
+</html>
