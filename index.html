@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Интернет до 2019 — Поиск</title>
+  <style>
+    body {
+      background: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    .note {
+      margin-top: 20px;
+      color: #666;
+    }
+    .gcse-searchresults-only {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+
+  <!-- Настройка фильтра ДО загрузки движка -->
+  <script>
+    window.__gcse = {
+      callback: function () {
+        const box = document.querySelector('.gsc-input');
+        const button = document.querySelector('.gsc-search-button');
+
+        if (box && button) {
+          const container = document.querySelector('.gsc-input-box');
+          if (container) {
+            container.addEventListener('keydown', function (e) {
+              if (e.key === 'Enter') {
+                e.stopPropagation();
+                const raw = box.value;
+                const filter = ' before:2019-03-01 -covid -коронавирус -спецоперация -украина -sars-cov-2 -pandemic -пандемия';
+                if (!raw.includes('before:2019-03-01')) {
+                  box.value = raw + filter;
+                }
+              }
+            });
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Подключение Programmable Search -->
+  <script async src="https://cse.google.com/cse.js?cx=517d928c6380c41c9"></script>
+</head>
+<body>
+  <h1>🌐 Интернет до марта 2019</h1>
+
+  <div class="note">Поиск по результатам до 1 марта 2019 года. Исключаются упоминания COVID, Украины, пандемии и т.п.</div>
+
+  <div class="gcse-search"></div>
+</body>
+</html>
